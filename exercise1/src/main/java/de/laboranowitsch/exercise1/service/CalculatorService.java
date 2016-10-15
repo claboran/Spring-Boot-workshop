@@ -5,5 +5,5 @@ package de.laboranowitsch.exercise1.service;
  */
 public interface CalculatorService {
 
-    Double calcVat(Double amount);
+    Double calcVat(Double amount, String countryCode);
 }

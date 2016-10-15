@@ -24,7 +24,7 @@ public class CalculatorServiceImpl implements CalculatorService {
         this.vatService = vatService;
     }
     @Override
-    public Double calcVat(Double amount) {
-        return amount + (amount * 0.19);
+    public Double calcVat(Double amount, String countryCode) {
+        return amount + (amount * vatService.getVatValue(countryCode));
     }
 }

@@ -1,11 +1,13 @@
 package de.laboranowitsch.exercise1;
 
+import de.laboranowitsch.common.service.CommonServiceConfiguration;
 import de.laboranowitsch.exercise1.service.CalculatorService;
 import de.laboranowitsch.exercise1.service.CalculatorServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Import;
 
 /**
  * Spring Boot main class
@@ -16,6 +18,7 @@ import org.springframework.context.ApplicationContext;
  */
 @Slf4j
 @SpringBootApplication
+@Import(value = {CommonServiceConfiguration.class})
 public class Exercise1Application {
 
     public static void main(String[] args) {
@@ -23,7 +26,7 @@ public class Exercise1Application {
         // Beans can be retrieved by
         // Type: Either by Interface or Implementation class
         // By Name and (Type)
-        log.info("Calculator Service: {}", context.getBean(CalculatorService.class));
+        log.info("Calculator Service: {}", context.getBean(CalculatorService.class).calcVat(100.0, "DE"));
     }
 
 }
