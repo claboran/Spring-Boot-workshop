@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Vat Service exposed via {@link Service} annotation
  */
-@Service
+@Service(value = "vatService")
 public class VatServiceImpl implements VatService {
 
     private static final Map<String, Double> VAT_MAP;

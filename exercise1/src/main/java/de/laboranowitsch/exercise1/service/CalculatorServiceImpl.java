@@ -4,6 +4,8 @@ import de.laboranowitsch.common.service.VatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * Exercise 1 - Class path scan
  * The service is detected by:
@@ -16,15 +18,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculatorServiceImpl implements CalculatorService {
 
-    private final VatService vatService;
+    /**
+     * Use Strategy pattern with Spring Beans and
+     * make a decision at runtime what to do
+     */
+    private final Map<String, VatService> vatServiceMap;
 
     // A pure Autowired does not help the CoponentScan is not present...
     @Autowired
-    public CalculatorServiceImpl(final VatService vatService) {
-        this.vatService = vatService;
+    public CalculatorServiceImpl(final Map<String, VatService> vatServiceMap) {
+        this.vatServiceMap = vatServiceMap;
     }
     @Override
     public Double calcVat(Double amount, String countryCode) {
-        return amount + (amount * vatService.getVatValue(countryCode));
+        return amount + (amount * vatServiceMap.get("constVatService").getVatValue(countryCode));
     }
 }
