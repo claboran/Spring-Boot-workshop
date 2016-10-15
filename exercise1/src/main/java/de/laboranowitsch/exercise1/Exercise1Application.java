@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Import;
  */
 @Slf4j
 @SpringBootApplication
-@Import(value = {CommonServiceConfiguration.class})
+@Import(value = {CommonServiceConfiguration.class}) // Spring Beans imported from Common Module
 public class Exercise1Application {
 
     public static void main(String[] args) {
