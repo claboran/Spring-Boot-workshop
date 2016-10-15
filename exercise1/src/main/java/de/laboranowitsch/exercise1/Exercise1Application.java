@@ -23,7 +23,7 @@ public class Exercise1Application {
         // Beans can be retrieved by
         // Type: Either by Interface or Implementation class
         // By Name and (Type)
-        log.info("Calculator Service: {}", context.getBean("calcService", CalculatorService.class));
+        log.info("Calculator Service: {}", context.getBean(CalculatorService.class));
     }
 
 }
