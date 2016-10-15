@@ -2,7 +2,6 @@ package de.laboranowitsch.exercise1;
 
 import de.laboranowitsch.common.service.CommonServiceConfiguration;
 import de.laboranowitsch.exercise1.service.CalculatorService;
-import de.laboranowitsch.exercise1.service.CalculatorServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
