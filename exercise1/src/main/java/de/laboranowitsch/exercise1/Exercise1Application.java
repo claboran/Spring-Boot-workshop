@@ -1,6 +1,7 @@
 package de.laboranowitsch.exercise1;
 
 import de.laboranowitsch.common.service.CommonServiceConfiguration;
+import de.laboranowitsch.common.sservice.CountryService;
 import de.laboranowitsch.exercise1.service.CalculatorService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -26,6 +27,7 @@ public class Exercise1Application {
         // Type: Either by Interface or Implementation class
         // By Name and (Type)
         log.info("Calculator Service: {}", context.getBean(CalculatorService.class).calcVat(100.0, "DE"));
+        context.getBean(CountryService.class).getIsoCodes().forEach(c -> log.info("Country Code: {}", c));
     }
 
 }
