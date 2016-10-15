@@ -1,10 +1,12 @@
 package de.laboranowitsch.exercise1;
 
+import de.laboranowitsch.common.pservice.CountryServiceConfiguration;
 import de.laboranowitsch.common.service.VatService;
 import de.laboranowitsch.common.sservice.CountryService;
 import de.laboranowitsch.common.sservice.CountryServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import java.util.Map;
 
@@ -14,6 +16,7 @@ import java.util.Map;
  * of Spring Boot.
  */
 @Configuration
+@Import(value = {CountryServiceConfiguration.class})
 public class ExternalServiceConfiguration {
 
     /**
@@ -26,4 +29,5 @@ public class ExternalServiceConfiguration {
     public CountryService countryService(Map<String, VatService> mapVatService) {
         return new CountryServiceImpl(mapVatService.get("constVatService"));
     }
+
 }

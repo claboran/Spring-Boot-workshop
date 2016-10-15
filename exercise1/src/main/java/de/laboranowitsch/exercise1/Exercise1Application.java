@@ -1,5 +1,7 @@
 package de.laboranowitsch.exercise1;
 
+import de.laboranowitsch.common.pservice.Country;
+import de.laboranowitsch.common.pservice.CountryFactory;
 import de.laboranowitsch.common.service.CommonServiceConfiguration;
 import de.laboranowitsch.common.sservice.CountryService;
 import de.laboranowitsch.exercise1.service.CalculatorService;
@@ -28,6 +30,12 @@ public class Exercise1Application {
         // By Name and (Type)
         log.info("Calculator Service: {}", context.getBean(CalculatorService.class).calcVat(100.0, "DE"));
         context.getBean(CountryService.class).getIsoCodes().forEach(c -> log.info("Country Code: {}", c));
+        CountryFactory countryFactory = context.getBean(CountryFactory.class);
+        Country c1 = countryFactory.getInstance();
+        c1.setCode("DE");
+        Country c2 = countryFactory.getInstance();
+        c2.setCode("FR");
+        log.info("Country 1: {}, Country 2: {}", c1.toString(), c2.toString());
     }
 
 }
