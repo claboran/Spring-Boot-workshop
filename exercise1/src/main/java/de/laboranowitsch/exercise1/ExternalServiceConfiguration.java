@@ -3,7 +3,6 @@ package de.laboranowitsch.exercise1;
 import de.laboranowitsch.common.service.VatService;
 import de.laboranowitsch.common.sservice.CountryService;
 import de.laboranowitsch.common.sservice.CountryServiceImpl;
-import de.laboranowitsch.exercise1.service.CalculatorService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
