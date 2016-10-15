@@ -27,6 +27,7 @@
     </parent>
 
 
+    <!-- Dependencies managed on parent level -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -34,7 +35,6 @@
                 <artifactId>jscience</artifactId>
                 <version>${jscience.version}</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 </project>

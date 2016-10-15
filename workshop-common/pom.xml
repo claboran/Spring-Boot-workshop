@@ -24,6 +24,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!-- This dependency is definitely not in Spring Boot :-) -->
         <dependency>
             <groupId>org.jscience</groupId>
             <artifactId>jscience</artifactId>
