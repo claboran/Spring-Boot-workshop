@@ -41,7 +41,7 @@ hs_err_pid*
 
 ## File-based project format:
 *.iws
-
+**/derby.log
 ## Plugin-specific files:
 
 # IntelliJ
