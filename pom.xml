@@ -10,6 +10,7 @@
     <modules>
         <module>exercise1</module>
         <module>workshop-common</module>
+        <module>exercise2</module>
     </modules>
     <packaging>pom</packaging>
 
