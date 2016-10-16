@@ -1,5 +1,6 @@
 package de.laboranowitsch.persistence.repo;
 
+import de.laboranowitsch.common.test.DbLoaderConfiguration;
 import de.laboranowitsch.persistence.PersistenceConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -15,6 +16,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @EnableAutoConfiguration
 @EntityScan(basePackages = {"de.laboranowitsch.persistence.entity"}, basePackageClasses = {Jsr310JpaConverters.class})
-@Import(value = {PersistenceConfiguration.class})
-public class TestH2Configuration {
+@Import(value = {PersistenceConfiguration.class, DbLoaderConfiguration.class})
+public class TestPersistenceConfiguration {
 }

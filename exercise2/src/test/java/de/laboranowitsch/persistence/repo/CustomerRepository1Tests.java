@@ -1,13 +1,13 @@
 package de.laboranowitsch.persistence.repo;
 
+import de.laboranowitsch.common.test.DbLoader;
 import de.laboranowitsch.persistence.entity.Contract;
 import de.laboranowitsch.persistence.entity.Customer;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
@@ -19,18 +19,23 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
 /**
- * Tests using {@link org.springframework.test.context.jdbc.SqlGroup} for loading the database
+ * Tests are using  for loading the database
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {TestH2Configuration.class})
-@SqlGroup({
-        @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:sql/create-int-test-h2.sql", "classpath:sql/insert-int-test-h2.sql"})
-    }
-)
+@SpringBootTest(classes = {TestPersistenceConfiguration.class})
 public class CustomerRepository1Tests {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private DbLoader dbLoader;
+
+    @Before
+    public void before() {
+        dbLoader.prepareDatabase();
+        dbLoader.loadData();
+    }
 
     @Test
     public void contextWired() {

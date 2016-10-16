@@ -1,14 +1,10 @@
-DROP TABLE  IF EXISTS contract;
-
-DROP TABLE IF EXISTS customer;
-
-CREATE TABLE IF NOT EXISTS customer (
+CREATE TABLE customer (
   id          BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
   first_name  VARCHAR(255),
   last_name   VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS contract (
+CREATE TABLE contract (
   id          BIGINT  AUTO_INCREMENT PRIMARY KEY NOT NULL,
   valid_from  DATE,
   valid_to    DATE,
