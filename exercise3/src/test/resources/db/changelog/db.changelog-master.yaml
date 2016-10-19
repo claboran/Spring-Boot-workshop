@@ -1,0 +1,60 @@
+atabaseChangeLog:
+  - changeSet:
+      id: 1
+      author: cla
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+              - column:
+                  name: last_name
+                  type: varchar(255)
+        - createTable:
+            tableName: contract
+            columns:
+              - column:
+                name: id
+                type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: valid_from
+                  type: date
+              - column:
+                  name: valid_to
+                  type: date
+              - column:
+                  name: customer_id
+                  type: bigint
+        - addForeignKeyConstraint:
+            baseColumnNames: customer_id
+            baseTableName:   contract
+            referencedColumnNames: id
+            referencedTableName: customer
+
+
+  - changeSet:
+      id: 2
+      author: cla
+      changes:
+        - insert:
+            tableName: person
+            columns:
+              - column:
+                  name: first_name
+                  value: Christian
+              - column:
+                  name: last_name
+                  value: Laboranowitsch
