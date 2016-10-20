@@ -4,6 +4,8 @@ import de.laboranowitsch.common.test.DbLoader;
 import de.laboranowitsch.exercise3.TesConfiguration;
 import de.laboranowitsch.persistence.entity.Contract;
 import de.laboranowitsch.persistence.entity.Customer;
+import liquibase.Liquibase;
+import liquibase.exception.LiquibaseException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,9 +32,13 @@ public class CustomerServiceTests {
     private CustomerService customerService;
     @Autowired
     private DbLoader dbLoader;
+    @Autowired
+    private Liquibase liquibase;
 
     @Before
-    public void before() {
+    public void before() throws LiquibaseException {
+
+        //liquibase.update("test"); // use it instead of dbLoader.prepare
         dbLoader.prepareDatabase();
         dbLoader.loadData();
     }

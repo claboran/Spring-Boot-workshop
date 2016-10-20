@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * Configuration for H2 integration tests
  */
 @Configuration
-@Import(value = { Exercise3Application.class})
+@Import(value = { Exercise3Application.class, DbLoaderConfiguration.class})
 @Profile(value = {Profiles.INT_TEST_H2, Profiles.INT_TEST_DERBY})
 public class TesConfiguration {
 }
